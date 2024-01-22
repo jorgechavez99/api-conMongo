@@ -1,5 +1,5 @@
 const {Router}=require('express')
-const {getInstalaciones}=require('../controllers/controllers')
+const {getInstalaciones,postCrearInstalaciones}=require('../controllers/controllers')
 
 const router=Router()
 
@@ -19,30 +19,9 @@ router.get('/instalaciones/:id',(req,res)=>{
     })
 })
 
-//mostrar crear instalaciones
-router.get('/crear',(req,res)=>{
-    res.json({
-        ok:true,
-        msg:'se visualizan para poder crear instalaciones'
-    })
-})
 
 //crear instalaciones 
-router.post('/crear',(req,res)=>{
-    res.json({
-        ok:true,
-        msg:'aca se crean las instalaciones'
-    })
-})
-
-
-//mostrar el actualizador de instalaciones
-router.get('/actualizar',(req,res)=>{
-    res.json({
-        ok:true,
-        msg:'se visualizan para poder actualizar las instalaciones'
-    })
-})
+router.post('/crear',postCrearInstalaciones)
 
 
 //actualizar instalaciones
@@ -50,15 +29,6 @@ router.put('/actualizar',(req,res)=>{
     res.json({
         ok:true,
         msg:'aca se actualizan las instalaciones'
-    })
-})
-
-
-//mostrar el eliminador de instalaciones 
-router.get('/eliminar',(req,res)=>{
-    res.json({
-        ok:true,
-        msg:'aca se eliminan las instalaciones'
     })
 })
 
